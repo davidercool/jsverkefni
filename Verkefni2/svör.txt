@@ -1,0 +1,8 @@
+1.
+ECMAscript er scripting tungumál frá 1997.
+ECMAscript er grunnurinn sem JavaScript (og fleiri tungumál) nota. 
+
+2.
+Loosely typed þýðir að þú þurfir ekki að define-a breytur. Þú getur búið til breytur án þess að skilgreyna hvernig tegund af breytu þetta er.
+
+3.
