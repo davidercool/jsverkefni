@@ -6,3 +6,64 @@ ECMAscript er grunnurinn sem JavaScript (og fleiri tungumál) nota.
 Loosely typed þýðir að þú þurfir ekki að define-a breytur. Þú getur búið til breytur án þess að skilgreyna hvernig tegund af breytu þetta er.
 
 3.
+null og undefined er basically sami hluturinn, það þýðir að þú ert búinn að declare-a variable án þess að gefa því value
+
+4.
+Það ætti ekki að vera neinn munur á '' og "" í JavaScript. það eina sem skiptir máli er að þú notir consistently sama merkið. Það eina er að í JSON skjölum þarf maður að nota gæsalappir.
+
+5.
+eini munurinn á == og === er að === checkar hvort að variables séu sama data-type, á meðan == checakr bara hvort að variables séu með sama value
+
+6.
+var variables eru alltaf global á meðan let variables fá local block scope.
+dæmi:
+
+let x = 0;
+if (x == 0) {
+    let x = 10
+}
+
+ef þú kallar á x inni í if statement-inu þá mun það skila 10, en fyrir utan mun það skila 0 vegna þess að talan breytist bara locally.
+ef að þú breytir let í var þá mun talann vera 10 inn í og fyrir utan if statement-ið
+
+7.
+function declaration:
+function x() {
+    return 1;
+}
+
+function expression:
+var x = function() {
+    return 1;
+}
+
+arrow functions:
+var x = (params) => params + 1;
+funcName(0);
+> 1
+
+8.
+use strict; setur scriptið þitt í strict mode. strict mode hagar sér öðruvísi og er öðruvísi á milli browsers.
+það breytir silent errors í throw errors, gerir optimization léttara og breytir nokkrum syntax reglum.
+
+9.
+function declarations verða hoisted, þannig að það fyrsta sem compilerinn sér er functionið, og svo sér hann "x();"
+
+10.
+ alert birtir 8 vegna þess að bæði functions verða hoistuð efst upp í scopinu sínu, þannig að fyrst verður foo = 3, svo verður foo = 8, og svo kallar þú á functionið.
+
+11.
+þetta skilar strengnum "30", ef þú gleymir að skrifa var fyrir framan mun þetta samt virka, en það er mjög slæmur vani að gera þetta. Það sem gerist er að interpreterinn mun leyta af age í scope chain-inu þangað til að það finnur það eða finnur það ekki. ef það finnur það ekki verður það búið til á staðnum.
+ef þú ert að gera þetta globally ætti þetta ekki að breyta neinu, en þetta er slæmur vani þannig að ekki gera það.
+
+12.
+Þetta býr basically til truly private function, svigarnir búa til variable scope, þannig að þú getur ekki kallað á functionið fyrir utan svigana.
+
+13.
+öll variables hafa annaðhvort global eða local scope, ef að variable er með local scope, mun það bara virka inni í functioninu þar sem þú bjóst það til, og kóðinn fyrir utan functionið veit ekkert að það sé til.
+global scope variables virka allstaðar.
+
+14.
+Mér fannst frekar erfitt að ná að skilja alveg hvað call stack er, og er ekki alveg búinn að átta mig á því ennþá, en ég skal reyna að útskýra það smá.
+stackið notar memoryið í tölvunni þinni til að geyma öll variables, parameters, return addresses. Allt þetta er fært í call stackið í öfugri röð (?)
+
