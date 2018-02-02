@@ -1,0 +1,9 @@
+Erfðir eru notaðar til að erfa proterties úr öðrum objects.
+
+Í dæminu hér er til objectið Person, og Teacher, sem erfir frá Person.
+
+Person er með nafn, aldur, kyn, og áhugamál, og kennarar eru líka persónur með alla þessa hluti, þannig að afhverju ekki að erfa öll þessi properties frá Person?
+
+Eftir að þú ert búinn að erfa með call functioninu, getur þú bætt við öllu sem gerir Teacher öðruvísi (subject í þessu dæmi).
+
+Þá ert þú kominn með nýtt object (Teacher) sem erfir öll properties úr Person objectinu (nafn, aldur, kyn, og áhugamál) og er líka með eitthvað sem gerir Teacher öðruvísi (subject)

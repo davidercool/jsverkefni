@@ -1,0 +1,1 @@
+Classes taka prototype-based inheritence kerfið í javascript, og breyta syntaxinu smá. Aðal munurinn á class declaration og function declaration er að classes verða ekki hoisted.
