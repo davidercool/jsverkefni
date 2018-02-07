@@ -1,0 +1,21 @@
+body {
+    padding-top: 15%;
+    max-width: 40em;
+    margin: auto;
+    text-align: center;
+    background-color: cornsilk
+}
+
+.answers {
+    flex-direction: row;
+    flex-flow: row;
+    display: flex;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.bg {
+    background-color: #ffffff;
+}
