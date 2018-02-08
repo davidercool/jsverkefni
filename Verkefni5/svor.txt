@@ -1,0 +1,14 @@
+#1
+getelembyid hættir um leið og það finnur eitt eintak af id-inu. Þetta virkar ef þú notar aldrei sama id tvisvar
+
+#2
+querySelectorAll()
+velur öll id sem hafa nafnið sem þú biður um
+
+#3
+
+var elements = document.getElementsByTagName('li');    // Leitar af elements með class nafnið hot
+if (elements.length > 0) {   // NodeList hefur Length property
+ var el = elements[2];       // velur þriðja element með nafnið li
+ el.className = 'cool';      // hægari aðferð sem NodeList á
+}
