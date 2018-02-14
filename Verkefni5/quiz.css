@@ -5,17 +5,34 @@ body {
     text-align: center;
     background-color: cornsilk
 }
-
+::selection{
+    background-color: lime;
+    color: black;
+}
 .answers {
     flex-direction: row;
     flex-flow: row;
     display: flex;
 }
 
-.w50 {
-    width: 50%;
+.answers2 {
+    flex-direction: row;
+    flex-flow: row;
+    display: flex;
 }
 
+.w50 {
+    text-align: center;
+    width: 50%;
+}
+.w50:hover{
+    background-color: lime;
+    color: lime;
+}
 .bg {
-    background-color: #ffffff;
+    font-size: 33px;
+    text-shadow: 2px 2px maroon, -2px -2px maroon;
+    font-family:fantasy;
+    color: navy;
+    background-color: #336699;
 }
