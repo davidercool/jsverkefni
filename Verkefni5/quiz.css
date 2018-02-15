@@ -1,9 +1,9 @@
 body {
-    padding-top: 15%;
+    padding-top: 7%;
     max-width: 40em;
     margin: auto;
     text-align: center;
-    background-color: cornsilk
+    background-color: cornsilk;
 }
 ::selection{
     background-color: lime;
@@ -13,9 +13,11 @@ body {
     flex-direction: row;
     flex-flow: row;
     display: flex;
+    text-align: center;
 }
 
 .answers2 {
+    text-align: center;
     flex-direction: row;
     flex-flow: row;
     display: flex;
@@ -26,12 +28,11 @@ body {
     width: 50%;
 }
 .w50:hover{
-    background-color: lime;
     color: lime;
 }
 .bg {
     font-size: 33px;
-    text-shadow: 2px 2px maroon, -2px -2px maroon;
+    /*text-shadow: 2px 2px maroon, -2px -2px maroon;*/
     font-family:fantasy;
     color: navy;
     background-color: #336699;

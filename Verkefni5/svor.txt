@@ -7,8 +7,26 @@ velur öll id sem hafa nafnið sem þú biður um
 
 #3
 
-var elements = document.getElementsByTagName('li');    // Leitar af elements með class nafnið hot
+var elements = document.getElementsByTagName('li');    // Leitar af elements með tag nafnið li
 if (elements.length > 0) {   // NodeList hefur Length property
  var el = elements[2];       // velur þriðja element með nafnið li
  el.className = 'cool';      // hægari aðferð sem NodeList á
 }
+
+#4
+
+getElementsByTagName() skilar öllum elements sem eru með tag nafnið sem þú baðst um
+dæmi:
+
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+
+hérna mun getElementsByTagName("li") skila lista með tölunum 1, 2, og 3
+
+#5
+
+whitespaces eru notuð til að gera kóða miklu lesanlegri fyrir fólk, en þegar interpreter les kóðann þinn sleppir hann öllum whitespaces, nema þegar er verið að vinna með texta, inline og inline block elements. Þá  eru whitespace mikilvæg til að allt sé sýnt rétt.
+Þetta getur stundum valdið smá bilum á milli elements sem þú villt ekki hafa þarna vegna þess að oft heldur maður að bil skipti engu máli en það gerir það því að það er verið að vinna með inline-elements.
