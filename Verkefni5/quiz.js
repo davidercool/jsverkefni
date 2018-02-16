@@ -4,7 +4,6 @@ var question1 = {
     correctAns: "Neil Armstrong"
 };
 
-
 var quiz = document.getElementById("quiz");
 
 quiz.getElementsByClassName("hello")[0].innerHTML = question1.question;
