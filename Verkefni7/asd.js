@@ -1,5 +1,6 @@
 function checkUsername() {
-    var target = el.target;
+    var target = e.target;
+    console.log(target)
 }
 var el = document.getElementById('username');
 el.addEventListener('blur', checkUsername, false);
