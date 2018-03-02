@@ -10,31 +10,31 @@ const roads = [ // Const array sem heldur utan um allar götur á milli staðset
 
 function buildGraph(edges) { // buildGraph býr til graph af öllum road tengingum
   let graph = Object.create(null); // býr til tómt object sem heitir graph
-  function addEdge(from, to) { // 
-    if (graph[from] == null) { //
-      graph[from] = [to]; //
+  function addEdge(from, to) { // býr til array af edges
+    if (graph[from] == null) { // ef að from er tómt
+      graph[from] = [to]; // breyttu from í to
     } else {
-      graph[from].push(to);
+      graph[from].push(to); // annars setja to í from arrayið
     }
   }
-  for (let [from, to] of edges.map(r => r.split("-"))) {
-    addEdge(from, to);
-    addEdge(to, from);
+  for (let [from, to] of edges.map(r => r.split("-"))) { //for of loop sem setur saman to-from og from-to edges
+    addEdge(from, to); // setur from-to í graph
+    addEdge(to, from); // setur to-from í graph
   }
-  return graph;
+  return graph; //skilar graph
 }
 
-const roadGraph = buildGraph(roads);
+const roadGraph = buildGraph(roads); // býr til map sem er const
 
-class VillageState {
-  constructor(place, parcels) {
-    this.place = place;
+class VillageState { // heldur utan um staðsetningar á vélmenni og delivery parcels
+  constructor(place, parcels) { // constructor fyrir klasann
+    this.place = place; 
     this.parcels = parcels;
   }
 
-  move(destination) {
-    if (!roadGraph[this.place].includes(destination)) {
-      return this;
+  move(destination) { // move function inni í klasanum
+    if (!roadGraph[this.place].includes(destination)) { // ef að áfangastaður er ekki einu move frá þér
+      return this; // skila gömlu staðsetningu
     } else {
       let parcels = this.parcels.map(p => {
         if (p.place != this.place) return p;
