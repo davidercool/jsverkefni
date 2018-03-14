@@ -97,25 +97,25 @@ function routeRobot(state, memory) { // vélmenni sem notar mailRoute til að f�
 function findRoute(graph, from, to) { // finnur stystu leið að næsta parcel
   let work = [{at: from, route: []}]; // array sem heldur utan um at og route
   for (let i = 0; i < work.length; i++) { // for loop sem keyrir jafn oft og lengdin á work arrayinu
-    let {at, route} = work[i]; // 
-    for (let place of graph[at]) {
+    let {at, route} = work[i]; // object sem geymir element í work array
+    for (let place of graph[at]) { // for of loop sem keyrir í gegnum graph staðsetningar
       if (place == to) return route.concat(place); // ef place == to 
-      if (!work.some(w => w.at == place)) { // 
-        work.push({at: place, route: route.concat(place)}); // 
+      if (!work.some(w => w.at == place)) { // ef að work er búið
+        work.push({at: place, route: route.concat(place)}); // breytir work array
       }
     }
   }
 }
 
-function goalOrientedRobot({place, parcels}, route) {
-  if (route.length == 0) {
-    let parcel = parcels[0];
-    if (parcel.place != place) {
-      route = findRoute(roadGraph, place, parcel.place);
+function goalOrientedRobot({place, parcels}, route) { // vélmenni sem fer alltaf stystu leið
+  if (route.length == 0) { // ef route lengdin er 0
+    let parcel = parcels[0]; // velur fyrsta parcel úr parcel arrayinu
+    if (parcel.place != place) { // ef að það parcel er ekki á sömu staðsetningu og vélmennið
+      route = findRoute(roadGraph, place, parcel.place); // notar findroute til að finna stystu leið að parcel
     } else {
-      route = findRoute(roadGraph, place, parcel.address);
+      route = findRoute(roadGraph, place, parcel.address); // notar findroute til að finna stystu leið að address
     }
   }
-  return {direction: route[0], memory: route.slice(1)};
+  return {direction: route[0], memory: route.slice(1)}; // skilar object með routeinu og slice af memory
 }
-runRobot(VillageState.random(), randomRobot);
+runRobot(VillageState.random(), randomRobot); // keyrir forritið með randomRobot og random villagestate
