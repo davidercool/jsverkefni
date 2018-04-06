@@ -7,7 +7,7 @@ function Bullet(x, y) {
     this.show = function() {
         noStroke();
         fill(150, 0, 255);
-        rect(this.x, this.y, this.r*2, this.r*2);
+        ellipse (this.x, this.y, this.r*2, this.r*2);
     }
     
     this.kill = function() {
