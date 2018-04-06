@@ -1,11 +1,27 @@
 function Bullet(x, y) {
     this.x = x;
     this.y = y;
+    this.r = 8;
+    this.toDelete = false;
     
     this.show = function() {
         noStroke();
         fill(150, 0, 255);
-        rect(this.x, this.y, 10, 20);
+        rect(this.x, this.y, this.r*2, this.r*2);
+    }
+    
+    this.kill = function() {
+        this.toDelete = true;
+    }
+    
+    this.hits = function(enemy) {
+        var d = dist(this.x, this.y, enemy.x, enemy.y)
+        if (d < this.r + enemy.r) {
+            console.log(this.x, this.y, enemy.x, enemy.y, d)
+            return true;
+        } else {
+            return false;
+        }
     }
     
     this.move = function() {
