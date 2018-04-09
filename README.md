@@ -1,2 +1,0 @@
-# jsverkefni
-Verkefni í Javascript
