@@ -5,6 +5,7 @@ var score = 0;
 var shootDelay = new Timer(0);
 
 function setup() {
+    var shootDelay = new Timer(0);
     createCanvas(600, 400);
     ship = new Ship();
     for (var i = 0; i < 6; i++) {
@@ -69,6 +70,10 @@ function draw() {
         score = 0;
         textSize(50);
         text("Game Over", width/4, height/2);
+        gameover = Timer(1000);
+        if (gameover.passed()) {
+            setup()
+        }
     }
 }
 
