@@ -1,14 +1,15 @@
 var cols, rows;
-var w = 80;
+var w = 40;
 var grid = [];
 var iterator = 0;
 var current;
 var bombs = []
+var healthPickups = []
 var stack = []
 
 function setup() {
     frameRate(1000);
-    createCanvas(640, 480);
+    createCanvas(2000, 1000);
     cols = floor(width / w);
     rows = floor(height / w);
 
@@ -24,10 +25,16 @@ function setup() {
 
 function draw() {
     var bomb = new Bomb();
+    var healthPickup = new hp();
     background(51);
     current.visited = true;
-    current.highlight();
+    
+    for (var i = 0; i < grid.length; i++) {
+        grid[i].show();
+    }
+    
     var next = current.checkNeighbours();
+    current.highlight();
     if (next) {
         
         next.visited = true;
@@ -38,7 +45,10 @@ function draw() {
         
         current = next;
         iterator+=1;
-        if (iterator % 10 == 0) {
+        if (iterator % 50 == 10) {
+            healthPickups.push(current.i, current.j);
+        }
+        if (iterator % 50 == 0) {
             bombs.push(current.i, current.j);
         }
     } else if (stack.length > 0) {
@@ -48,8 +58,9 @@ function draw() {
         
     } else {
         for (var i = 0; i < grid.length; i++) {
-            grid[i].show();
+            //grid[i].show();
             bomb.show(bombs);
+            healthPickup.show(healthPickups);
         }
     }
 }

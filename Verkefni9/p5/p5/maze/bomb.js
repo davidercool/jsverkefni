@@ -1,6 +1,7 @@
 function Bomb() {
     this.current = current;
     this.r = w/2;
+    this.w = w
 
     this.explode = function() {
         if (current == this.cellnumber && player.health == 0) {
@@ -9,10 +10,9 @@ function Bomb() {
     }
     
     this.show = function(bombs) {
-        for (var x = 0; x < bombs.length; x+2) {
-            noStroke();
+        for (var x = 0; x < bombs.length; x+=2) {
             fill(255, 0, 0, 100);
-            //ellipse(bombs[x]*20, bombs[x+1]*20, this.r, this.r)
+            ellipse(bombs[x]*this.w+this.r, bombs[x+1]*this.w+this.r, this.r, this.r)
         }
     }
 }
