@@ -10,7 +10,6 @@ var player;
 var generate = true;
 
 function setup() {
-    var player = new Player();
     frameRate(1000);
     createCanvas(1920, 1080);
     cols = floor(width / w);
@@ -22,14 +21,15 @@ function setup() {
             grid.push(cell);
         }
     }
-    console.log("overwrite4")
+    //console.log("overwrite4");
+    var player = new Player();
     current = grid[0];
 }
 
 function draw() {
     if (generate) {
         player = new Player(current);
-        console.log("overwrite3")
+        //console.log("overwrite3");
     }
     var bomb = new Bomb();
     var healthPickup = new hp();
@@ -49,7 +49,7 @@ function draw() {
         stack.push(current);
         
         removeWalls(current, next);
-        console.log("overwrite2")
+        //console.log("overwrite2");
         current = next;
         iterator+=1;
         if (iterator % 50 == 10) {
@@ -59,15 +59,12 @@ function draw() {
             bombs.push(current.i, current.j);
         }
     } else if (stack.length > 0) {
-        console.log("overwrite1")
+        //console.log("overwrite1");
         current = stack.pop();
         iterator+=1;
         
     } else {
-        generate = false
-        console.log(player.current)
-        player = new Player(current)
-        console.log(player.current)
+        generate = false;
         bomb.show(bombs);
         healthPickup.show(healthPickups);
         for (var i = 0; i < grid.length; i++) {

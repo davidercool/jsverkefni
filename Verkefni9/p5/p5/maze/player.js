@@ -4,14 +4,17 @@ function Player(current) {
     
     this.move = function(i, j, dir) {
         if (dir === "right") {
-            current = grid[index(i+1,j)];
-            console.log("after", current)
+            this.current = grid[index(i+1,j)];
+            console.log(current)
         } else if (dir === "left") {
-            current = grid[index(i-1,j)];
+            this.current = grid[index(i-1,j)];
+            console.log(current)
         } else if (dir === "up") {
-            current = grid[index(i,j-1)];
+            this.current = grid[index(i,j-1)];
+            console.log(current)
         } else if (dir === "down") {
-            current = grid[index(i,j+1)];
+            this.current = grid[index(i,j+1)];
+            console.log(current)
         }
     }
 }
