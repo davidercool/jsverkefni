@@ -1,15 +1,17 @@
 var cols, rows;
-var w = 40;
+var w = 120;
 var grid = [];
 var iterator = 0;
 var current;
-var bombs = []
-var healthPickups = []
-var stack = []
+var bombs = [];
+var healthPickups = [];
+var stack = [];
+var player;
 
 function setup() {
+    var player = new Player();
     frameRate(1000);
-    createCanvas(2000, 1000);
+    createCanvas(1920, 1080);
     cols = floor(width / w);
     rows = floor(height / w);
 
@@ -19,11 +21,11 @@ function setup() {
             grid.push(cell);
         }
     }
-    console.log(grid);
     current = grid[0];
 }
 
 function draw() {
+    player = new Player(current);
     var bomb = new Bomb();
     var healthPickup = new hp();
     background(51);
@@ -61,6 +63,8 @@ function draw() {
             //grid[i].show();
             bomb.show(bombs);
             healthPickup.show(healthPickups);
+            current = player.current;
+            current.highlight();
         }
     }
 }
@@ -89,5 +93,24 @@ function removeWalls (a, b) {
     } else if (y == -1) {
         a.walls[2] = false;
         b.walls[0] = false;
+    }
+}
+
+function keyPressed() { // ef þú ýtir á takka
+    if (keyCode === RIGHT_ARROW && current.walls[1] == false) { 
+        console.log("right")
+        player.move(current.i, current.j, "right")
+    }  
+    if (keyCode === LEFT_ARROW && current.walls[3] == false) { 
+        console.log("left")
+        player.move(current.i, current.j, "left")
+    } 
+    if (keyCode === DOWN_ARROW && current.walls[2] == false) { 
+        console.log("down")
+        player.move(current.i, current.j, "down")
+    }
+    if (keyCode === UP_ARROW && current.walls[0] == false) { 
+        console.log("up")
+        player.move(current.i, current.j, "up")
     }
 }
