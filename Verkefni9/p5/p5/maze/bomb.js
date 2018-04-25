@@ -5,8 +5,12 @@ function Bomb() {
 
     this.explode = function() {
         if (current == this.cellnumber && player.health == 0) {
-            text("GameOver");
+            player.health -= 1;
         }
+        if (player.health == 0){
+            text("GameOver", 50, 50)
+        }
+        
     }
     
     this.show = function(bombs) {

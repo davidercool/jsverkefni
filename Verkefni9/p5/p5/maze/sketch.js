@@ -35,10 +35,10 @@ function draw() {
     var healthPickup = new hp();
     background(51);
     current.visited = true;
-    
-    for (var i = 0; i < grid.length; i++) {
-        grid[i].show();
-    }
+            for (var i = 0; i < grid.length; i++) {
+            grid[i].show();
+        }
+
     
     var next = current.checkNeighbours();
     current.highlight();
@@ -63,7 +63,12 @@ function draw() {
         current = stack.pop();
         iterator+=1;
         
-    } else {
+    } else {   //þegar maze er tilbúið
+        console.log(bombs)
+        current = player.current;
+        if (current == 0) {
+            bomb.explode
+        }
         generate = false;
         bomb.show(bombs);
         healthPickup.show(healthPickups);

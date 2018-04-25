@@ -38,7 +38,7 @@ function Cell(i, j) {
         var y = this.j*w;
         noStroke();
         fill(0, 0, 255, 900)
-        rect(x, y, w, w);
+        rect(x+1, y+1, w-1, w-1);
     }
     
     this.show = function() {
