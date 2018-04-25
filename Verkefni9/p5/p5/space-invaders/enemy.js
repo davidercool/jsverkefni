@@ -3,18 +3,15 @@ function Enemy(x, y) {
     this.y = y;
     this.r = 15;
     this.toDelete = false;
-    this.xdir = 1;
+    this.xdir = 1
     
     this.kill = function() {
         this.toDelete = true;
     }
     
-    this.shiftDown = function() { // færir óvini niður
-        this.xdir += 1;
-        if (this.xdir % 2 == 0) {
-            this.xdir = -this.xdir
-        }
-        console.log(this.xdir)
+    this.shiftDown = function() {
+        this.xdir=Math.abs(this.xdir)+1;
+        this.xdir=[-1,1][this.xdir%2] * this.xdir;
         this.y += this.r;
     }
     

@@ -17,7 +17,6 @@ function Bullet(x, y) {
     this.hits = function(enemy) {
         var d = dist(this.x, this.y, enemy.x, enemy.y)
         if (d < this.r + enemy.r) {
-            console.log(this.x, this.y, enemy.x, enemy.y, d)
             return true;
         } else {
             return false;
@@ -28,3 +27,4 @@ function Bullet(x, y) {
         this.y = this.y - 5;
     }
 }
+
